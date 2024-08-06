@@ -26,6 +26,7 @@ EOSQL
 
 echo "Database and user created."
 
+mysqladmin shutdown
 # Wait for the background mysqld process to end
 wait "$pid"
 

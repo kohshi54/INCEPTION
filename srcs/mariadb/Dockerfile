@@ -11,5 +11,8 @@ COPY ./tools/entrypoint.sh /usr/local/bin/
 COPY ./conf/my.cnf /etc/mysql/my.cnf
 RUN chmod +x /usr/local/bin/entrypoint.sh
 EXPOSE 3306
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+RUN /usr/local/bin/entrypoint.sh
+USER mysql
+CMD ["mysqld"]
+#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
