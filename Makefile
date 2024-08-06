@@ -17,4 +17,6 @@ re: down up
 
 clean:
 	docker compose -f srcs/docker-compose.yml down --rmi all
+	docker system prune
+	docker volume rm $(docker volume ls -q})
 
