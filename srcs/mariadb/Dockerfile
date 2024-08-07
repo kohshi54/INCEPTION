@@ -6,6 +6,8 @@ RUN apt update \
 RUN mkdir -p /var/lib/mysql /var/run/mysqld \
     && chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 
+RUN apt clean
+
 COPY ./conf/init.sql /docker-entrypoint-initdb.d/
 COPY ./conf/my.cnf /etc/mysql/my.cnf
 

@@ -17,11 +17,13 @@ RUN curl -O https://wordpress.org/latest.zip \
 #COPY tools/wp-installer.sh /usr/local/bin/wp-installer.sh
 #RUN chmod +x /usr/local/bin/wp-installer.sh
 
-COPY conf/wp-config.php /var/www/html/wp-config.php
-COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY ./conf/wp-config.php /var/www/html/wp-config.php
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 RUN mkdir -p /run/php \
     && chown -R www-data:www-data /run/php
+
+RUN apt clean
 
 EXPOSE 9000
 CMD ["php-fpm7.4", "--nodaemonize"]
