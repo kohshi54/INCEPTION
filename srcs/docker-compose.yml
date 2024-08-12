@@ -1,6 +1,11 @@
 services:
   wordpress:
     container_name: my_wp
+    environment:
+      WP_URL: kyamaguc.42.fr
+      WP_ADMIN_USER: wordpress
+      WP_ADMIN_PASSWORD: wordpress_password
+      WP_ADMIN_EMAIL: info@wp-cli.org
     build:
       context: ./wordpress
     volumes:
@@ -19,7 +24,7 @@ services:
       - wp_data:/var/www/html
       - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - "80:80"
+      #- "80:80"
       - "443:443"
     depends_on:
       - wordpress

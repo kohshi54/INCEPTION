@@ -34,5 +34,6 @@ EXPOSE 9000
 COPY tools/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+#CMD ["/usr/local/bin/entrypoint.sh"]
 #CMD ["php-fpm7.4", "--nodaemonize"]
 
