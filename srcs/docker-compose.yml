@@ -22,7 +22,7 @@ services:
       context: ./nginx
     volumes:
       - wp_data:/var/www/html
-      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      #- ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
     ports:
       #- "80:80"
       - "443:443"
@@ -58,14 +58,14 @@ volumes:
     name: wp_data
     driver: local
     driver_opts:
-      device: /home/kohshi54/data//wp_data/
+      device: ~/data/wp_data/
       o: bind
       type: none
   db_data:
     name: db_data
     driver: local
     driver_opts:
-      device: /home/kohshi54/data/db_data/
+      device: ~/data/db_data/
       o: bind
       type: none
 
