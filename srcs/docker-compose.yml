@@ -58,14 +58,14 @@ volumes:
     name: wp_data
     driver: local
     driver_opts:
-      device: ./../data/wp_data/
+      device: /home/kohshi54/data//wp_data/
       o: bind
       type: none
   db_data:
     name: db_data
     driver: local
     driver_opts:
-      device: ./../data/db_data/
+      device: /home/kohshi54/data/db_data/
       o: bind
       type: none
 
