@@ -2,10 +2,10 @@ services:
   wordpress:
     container_name: my_wp
     environment:
-      WP_URL: kyamaguc.42.fr
-      WP_ADMIN_USER: wordpress
-      WP_ADMIN_PASSWORD: wordpress_password
-      WP_ADMIN_EMAIL: info@wp-cli.org
+      WP_URL: ${WP_URL}
+      WP_ADMIN_USER: ${WP_ADMIN_USER}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
     build:
       context: ./wordpress
     volumes:
