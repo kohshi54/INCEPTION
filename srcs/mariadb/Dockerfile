@@ -13,10 +13,11 @@ RUN mkdir /docker-entrypoint-initdb.d/ \
     && touch /docker-entrypoint-initdb.d/init.sql \
     && chmod 777 /docker-entrypoint-initdb.d/init.sql \
     && chmod +x /usr/local/bin/script.sh
-COPY ./conf/my.cnf /etc/mysql/my.cnf
+#COPY ./conf/my.cnf /etc/mysql/my.cnf
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 EXPOSE 3306
 USER mysql
-CMD ["/usr/local/bin/script.sh"]
+ENTRYPOINT ["/usr/local/bin/script.sh"]
 #CMD ["mysqld", "--init-file=/docker-entrypoint-initdb.d/init.sql"]
 

@@ -3,7 +3,7 @@ services:
     container_name: wp-ct
     env_file:
       - .env
-    image: wp-image:42
+    image: wordpress:42
     build: ./wordpress
     volumes:
       - wp_data:/var/www/html
@@ -15,7 +15,7 @@ services:
 
   nginx:
     container_name: nginx-ct
-    image: nginx-image:42
+    image: nginx:42
     build: ./nginx
     volumes:
       - wp_data:/var/www/html
@@ -36,7 +36,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    image: mariadb-image:42
+    image: mariadb:42
     build: ./mariadb
     volumes:
       - db_data:/var/lib/mysql
