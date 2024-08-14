@@ -8,9 +8,9 @@ curl -O https://wordpress.org/latest.zip \
     && chown -R www-data:www-data /var/www/html/ \
     && chmod -R 755 /var/www/html/
 
-sed -i "s/dbname/${MYSQL_DATABASE}/1" /wp-config.php
-sed -i "s/dbuser/${MYSQL_USER}/1" /wp-config.php
-sed -i "s/dbpassword/${MYSQL_PASSWORD}/1" /wp-config.php
+sed -i 's/dbname/${MYSQL_DATABASE}/' /wp-config.php
+sed -i 's/dbuser/${MYSQL_USER}/' /wp-config.php
+sed -i 's/dbpassword/${MYSQL_PASrWORD}/' /wp-config.php
 
 mv /wp-config.php /var/www/html/wp-config.php
 
