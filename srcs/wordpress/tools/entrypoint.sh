@@ -1,19 +1,10 @@
 #!/bin/bash
 
-if ! [ -f /var/www/html/wp-config.php ]; then
-  mkdir -p /var/www/html/
-  
-  curl -O https://wordpress.org/latest.zip \
-      && unzip latest.zip \
-      && mv wordpress/* /var/www/html/ \
-      && chown -R www-data:www-data /var/www/html/ \
-      && chmod -R 755 /var/www/html/
-  
-  sed -i "s/dbname/${MYSQL_DATABASE}/" /wp-config.php
-  sed -i "s/dbuser/${MYSQL_USER}/" /wp-config.php
-  sed -i "s/dbpassword/${MYSQL_PASSWORD}/" /wp-config.php
-  
+if [ -f /wp-config.php ]; then
   mv /wp-config.php /var/www/html/wp-config.php
+  sudo  sed -i "s/dbname/${MYSQL_DATABASE}/" /var/www/html/wp-config.php
+  sudo  sed -i "s/dbuser/${MYSQL_USER}/" /var/www/html/wp-config.php
+  sudo  sed -i "s/dbpassword/${MYSQL_PASSWORD}/" /var/www/html/wp-config.php
   
   curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   chmod +x wp-cli.phar

@@ -6,17 +6,16 @@ RUN apt update -y \
     && apt install curl -y \
     && apt install unzip -y
 
-#RUN mkdir -p /var/www/html/
+RUN mkdir -p /var/www/html/
 
-#RUN curl -O https://wordpress.org/latest.zip \
-#    && unzip latest.zip \
-#    && mv wordpress/* /var/www/html/ \
-#    && chown -R www-data:www-data /var/www/html/ \
-#    && chmod -R 755 /var/www/html/
+RUN curl -O https://wordpress.org/latest.zip \
+    && unzip latest.zip \
+    && mv wordpress/* /var/www/html/ \
+    && chown -R www-data:www-data /var/www/html/ \
+    && chmod -R 755 /var/www/html/
 
 #COPY ./conf/wp-config.php /var/www/html/wp-config.php
 COPY ./conf/wp-config.php /wp-config.php
-#RUN  chmod 777 /var/www/html/wp-config.php
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 RUN mkdir -p /run/php \
