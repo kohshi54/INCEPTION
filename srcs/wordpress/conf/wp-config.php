@@ -1,7 +1,7 @@
 <?php
-define('DB_NAME', 'wordpress');
-define('DB_USER', 'wordpress_user');
-define('DB_PASSWORD', 'wordpress_password');
+define('DB_NAME', 'dbname');
+define('DB_USER', 'dbuser');
+define('DB_PASSWORD', 'dbpassword');
 define('DB_HOST', 'mariadb:3306'); // MariaDBコンテナのホスト名
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');

@@ -1,11 +1,16 @@
 services:
   wordpress:
     container_name: my_wp
-    environment:
-      WP_URL: ${WP_URL}
-      WP_ADMIN_USER: ${WP_ADMIN_USER}
-      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
-      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+    env_file:
+      - .env
+#    environment:
+#      WP_URL: ${WP_URL}
+#      WP_ADMIN_USER: ${WP_ADMIN_USER}
+#      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
+#      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+#      MYSQL_DATABASE: ${MYSQL_DATABASE}
+#      MYSQL_USER: ${MYSQL_USER}
+#      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     build:
       context: ./wordpress
     volumes:
@@ -34,8 +39,6 @@ services:
   
   mariadb:
     container_name: my_mariadb
-    #env_file:
-    #  - .env
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
