@@ -1,13 +1,13 @@
 all: up
 
 up:
-	#mkdir -p ./data/wp_data # priviledge differ in host and container
-	#mkdir -p ./data/db_data
+	#mkdir -p ~/data/wp_data # priviledge differ in host and container
+	#mkdir -p ~/data/db_data
 	docker compose -f srcs/docker-compose.yml up -d
 
 upnoc:
-	#mkdir -p ./data/wp_data
-	#mkdir -p ./data/db_data
+	#mkdir -p ~/data/wp_data
+	#mkdir -p ~/data/db_data
 	docker compose -f srcs/docker-compose.yml build --no-cache
 	docker compose -f srcs/docker-compose.yml up -d
 
@@ -25,6 +25,4 @@ clean:
 	docker volume rm $$(docker volume ls -q)
 	rm -rf ~/data/wp_data/*
 	rm -rf ~/data/db_data/*
-	#docker volume rm wp_data
-	#docker volume rm db_data
 
