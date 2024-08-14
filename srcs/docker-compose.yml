@@ -10,7 +10,8 @@ services:
     networks:
       - wp-network
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy
     restart: always
 
   nginx:
@@ -43,6 +44,11 @@ services:
     networks:
       - wp-network
     restart: always
+    healthcheck:
+      test: "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD"
+      interval: 3s
+      retries: 5
+      start_period: 30s
 
 networks:
   wp-network:
