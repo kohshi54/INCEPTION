@@ -4,7 +4,8 @@ RUN apt update -y \
     && apt install php-fpm -y \
     && apt install php-mysql -y \
     && apt install curl -y \
-    && apt install unzip -y
+    && apt install unzip -y \
+    && apt install sudo -y
 
 RUN mkdir -p /var/www/html/
 

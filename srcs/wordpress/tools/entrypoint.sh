@@ -2,9 +2,9 @@
 
 if [ -f /wp-config.php ]; then
   mv /wp-config.php /var/www/html/wp-config.php
-  sudo  sed -i "s/dbname/${MYSQL_DATABASE}/" /var/www/html/wp-config.php
-  sudo  sed -i "s/dbuser/${MYSQL_USER}/" /var/www/html/wp-config.php
-  sudo  sed -i "s/dbpassword/${MYSQL_PASSWORD}/" /var/www/html/wp-config.php
+  sudo sed -i "s/dbname/${MYSQL_DATABASE}/" /var/www/html/wp-config.php
+  sudo sed -i "s/dbuser/${MYSQL_USER}/" /var/www/html/wp-config.php
+  sudo sed -i "s/dbpassword/${MYSQL_PASSWORD}/" /var/www/html/wp-config.php
   
   curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   chmod +x wp-cli.phar
