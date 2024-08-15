@@ -10,6 +10,7 @@ if [ -f /wp-config.php ]; then
   chmod +x wp-cli.phar
   mv wp-cli.phar /usr/local/bin/wp
   wp core install --allow-root --path=/var/www/html --url=${WP_URL} --title="WP-CLI" --admin_user=${WP_ADMIN_USER} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
+  wp user create --allow-root --path=/var/www/html ${WP_USER} ${WP_USER_EMAIL} --role=author --user_pass=${WP_PASSWORD}
   
 fi
 
